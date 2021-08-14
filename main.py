@@ -79,13 +79,16 @@ class TelegramBot(Bot):
 
 
 if __name__ == "__main__":
-    message = "Добрый день! Увидела Вас в чате, @mamapapa_chat, эта статья меня просто поразила. Оказывается солнцезащитный крем так влияет на наше здоровье, и здоровье наших детей. \n https://www.instagram.com/p/CNpFfRLL5Z2/"
+    message = "Добрый день! Увидела Вас в чате, @mamapapa_chat, эта статья меня просто поразила. Оказывается " \
+              "солнцезащитный крем так влияет на наше здоровье, и здоровье наших детей. \n " \
+              "https://www.instagram.com/p/CNpFfRLL5Z2/ "
     client = TelegramBot()
     dialog_id = client.get_dialog_id("CRM")
     users = client.get_dialog_users(dialog_id)
 
     client.send_individual_message(['me'], message)
-    #client.send_message_to_participants(users, message)
+
+    # client.send_message_to_participants(users, message)
 
     # t = client.get_dialog_users_from_file('target1.txt')
     # print(t)

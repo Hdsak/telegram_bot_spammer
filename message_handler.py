@@ -2,7 +2,6 @@ from telethon import TelegramClient, events, sync
 import time
 import params
 
-
 api_id = params.API_ID
 api_hash = params.API_HASH
 phone_number = params.PHONE_NUMBER
@@ -19,6 +18,10 @@ async def hello(event):
     await client.send_message('CRM', "Привет👋\nЯ заБОТа-БОТ от Botan")
 
 
+@events.register(events.NewMessage(chats=('Кира Найтли'), pattern=r'(?i).*\b(привет)\b'))
+async def hello(event):
+    await client.send_message('Кира Найтли', "Привет👋\nЯ заБОТа-БОТ от Botan")
+
 
 
 with TelegramClient('new1', api_id, api_hash) as client:
@@ -27,6 +30,3 @@ with TelegramClient('new1', api_id, api_hash) as client:
     client.add_event_handler(normal_handler)
     client.add_event_handler(hello)
     client.run_until_disconnected()
-
-
-
